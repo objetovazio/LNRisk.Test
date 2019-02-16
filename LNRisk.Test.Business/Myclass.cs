@@ -3,6 +3,7 @@ using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -122,15 +123,18 @@ namespace LNRisk.Test.Business
             var item = this.myData.FirstOrDefault(x => x.Id.Equals(id));
             var dictCountedLetters = new Dictionary<char, int>();
 
+
             foreach (char charc in item.Payload)
             {
-                if (dictCountedLetters.ContainsKey(charc))
+                var loweredChar = Char.ToLower(charc);
+
+                if (dictCountedLetters.ContainsKey(loweredChar))
                 {
-                    dictCountedLetters[charc]++;
+                    dictCountedLetters[loweredChar]++;
                 }
-                else if (char.IsLetter(charc))
+                else if (char.IsLetter(loweredChar))
                 {
-                    dictCountedLetters.Add(charc, 1);
+                    dictCountedLetters.Add(loweredChar, 1);
                 }
             }
 
@@ -181,7 +185,9 @@ namespace LNRisk.Test.Business
         {
             var item = this.myData.FirstOrDefault(x => x.Id.Equals(id));
 
-            string[] allWords = item.Payload.Split(' ');
+            char[] splitChar = {' ', '\n'}; 
+            
+            string[] allWords = item.Payload.Split(splitChar);
             string biggestPalindrome = string.Empty;
 
 
