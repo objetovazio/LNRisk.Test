@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LNRisk.Test.Business", "LNR
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LNRisk.Test.ConsoleTest", "LNRisk.Test.ConsoleTest\LNRisk.Test.ConsoleTest.csproj", "{977F60C4-37D2-4BF7-8117-8A2B9F234357}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LNRisk.Test.Web", "LNRisk.Test.Web\LNRisk.Test.Web.csproj", "{5BFBD20D-C35A-4AF5-8DA7-7826ECEEDC1C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{977F60C4-37D2-4BF7-8117-8A2B9F234357}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{977F60C4-37D2-4BF7-8117-8A2B9F234357}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{977F60C4-37D2-4BF7-8117-8A2B9F234357}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BFBD20D-C35A-4AF5-8DA7-7826ECEEDC1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BFBD20D-C35A-4AF5-8DA7-7826ECEEDC1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BFBD20D-C35A-4AF5-8DA7-7826ECEEDC1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BFBD20D-C35A-4AF5-8DA7-7826ECEEDC1C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

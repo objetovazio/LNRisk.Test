@@ -11,7 +11,7 @@ namespace LNRisk.Test.ConsoleTest
     {
         public static void Main(string[] args)
         {
-            Myclass myClass = new Myclass();
+            MyClass myClass = new MyClass();
 
             // Creating First Data
             // Testing the StoreData()

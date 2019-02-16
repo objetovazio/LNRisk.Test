@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+</head>
+<body class="bg-danger">
+
+    <!-- Image and text -->
+    <nav class="navbar navbar-light fixed-top bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="~/Content/Images/logo.png" class="d-inline-block align-top" alt="">
+        </a>
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    <footer class="fixed-bottom bg-dark text-white">
+        <div class="text-center py-3">
+            André Martins
+            <p>@DateTime.Now.Year - LexisNexis&reg; Test Aplication</p>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

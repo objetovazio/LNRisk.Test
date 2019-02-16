@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <div class="col-sm-12 ">
+        <a id="btnAddModal" href="#" class="btn btn-default col-md-3 mt-1" data-action="New"><i class="fa fa-plus-circle" aria-hidden="true"></i>Add New</a>
+    </div>
+
+    <div class="col-md-12 col-sm-12 mt-2">
+        <table id="myTable" class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col" style="width: 5%">Id</th>
+                    <th scope="col" style="width: 85%">Payload</th>
+                    <th scope="col" style="width: 10%"></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="txtId" class="col-form-label">Id:</label>
+                        <input type="text" class="form-control" id="txtId">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtPayload" class="col-form-label">Payload:</label>
+                        <textarea class="form-control" id="txtPayload" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button id="btnNew" type="button" class="btn btn-default btn-action">Add</button>
+                <button id="btnEdit" type="button" class="btn btn-default  btn-action">Edit</button>
+                <button id="btnDelete" type="button" class="btn btn-default  btn-action">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script src="~/Scripts/Custom/Index.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var obj = new ModuleIndex();
+
+            obj.startModule();
+        });
+    </script>
+}
