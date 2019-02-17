@@ -84,7 +84,6 @@ namespace LNRisk.Test.Web.Controllers
             {
                 return Json(new { result = false, message = $"Error trying to get results. {e.Message}" });
             }
-
         }
 
         private string LettersToString(Dictionary<char, int> dict)

@@ -41,7 +41,7 @@ namespace LNRisk.Test.ConsoleTest
             }
 
             // Testing CountDates()
-            Console.WriteLine("Count Dates from Id 8: " + myClass.CountDatesRegex("8")); //TODO: Check this again
+            Console.WriteLine("Count Dates from Id 8: " + myClass.CountDates("8")); //TODO: Check this again
 
             // Testing CountLetters()
             Console.WriteLine("Count Letters from Id 8:"); //TODO: Check this again

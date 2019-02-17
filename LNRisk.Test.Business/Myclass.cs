@@ -85,7 +85,7 @@ namespace LNRisk.Test.Business
         /// Edit a existing Payload
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="payload"></param>
+        /// <param name="newPayload"></param>
         /// <returns>Returns true in case of success. Returns false in case of the Id doesn't exists.</returns>
         public bool EditData(string id, string newPayload)
         {
@@ -110,7 +110,6 @@ namespace LNRisk.Test.Business
             var item = this.myData.FirstOrDefault(x => x.Id.Equals(id));
 
             int counter = 0;
-            int helper = 0;
             bool isValid;
             char[] splitChar = {' ', '\n'}; 
             
