@@ -73,6 +73,11 @@ namespace LNRisk.Test.Web.Controllers
                 var Letters = LettersToString(MyClass.CountLetters(model.Id));
                 string Palindrome = MyClass.SearchBiggestPalindrome(model.Id);
 
+                if (string.IsNullOrEmpty(Palindrome))
+                {
+                    Palindrome = "<b>No palindromes found.</b>";
+                }
+
                 return Json(new { result = true, message = "Success.", DateAmount = DateAmount, Letters = Letters, Palindrome = Palindrome });
             }
             catch (Exception e)
@@ -89,6 +94,11 @@ namespace LNRisk.Test.Web.Controllers
             foreach (char key in dict.Keys)
             {
                 html += string.Format("{0} -> {1} </br> ", key, dict[key]);
+            }
+
+            if (string.IsNullOrEmpty(html))
+            {
+                html = "<b>No letters found.</b>";
             }
 
             return html;

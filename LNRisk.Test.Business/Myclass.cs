@@ -3,6 +3,7 @@ using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mime;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -98,7 +99,7 @@ namespace LNRisk.Test.Business
 
             return false;
         }
-
+        
         /// <summary>
         /// Count the amount of dates in the payload
         /// </summary>
@@ -108,9 +109,47 @@ namespace LNRisk.Test.Business
         {
             var item = this.myData.FirstOrDefault(x => x.Id.Equals(id));
 
-            Regex dateRegex = new Regex("\\d{4}/\\d{2}/\\d{2}");
+            int counter = 0;
+            int helper = 0;
+            bool isValid;
+            char[] splitChar = {' ', '\n'}; 
+            
+            string[] allContent = item.Payload.Split(splitChar);
 
-            return dateRegex.Matches(item.Payload).Count;
+            foreach (string content in allContent)
+            {
+                isValid = true;
+
+                var dateContent = content.Split('/');
+                if (dateContent.Length < 3)
+                {
+                    isValid = false;
+                }
+                else
+                {
+                    if (!isValidNumber(dateContent[0], 4, 0, 9999)) isValid = false; // Validate Year
+                    if (!isValidNumber(dateContent[1], 2, 1, 12)) isValid = false;   // Validate  Month
+                    if (!isValidNumber(dateContent[2], 2, 1, 30)) isValid = false;   // Validate Day
+                }
+
+                if (isValid) counter++;
+            }
+
+
+            return counter;
+        }
+
+        private bool isValidNumber(string number, int size, int start, int end)
+        {
+            if (number.Length < size) return false;
+
+            int helper = 0;
+
+            if (!int.TryParse(number, out helper)) return false;
+
+            if (helper < start || helper > end) return false;
+
+            return true;
         }
 
         /// <summary>
